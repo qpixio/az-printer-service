@@ -1,10 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # Wait for network
-sleep 10
+sleep 2
 
 # Navigate to your print server directory
-cd ~/printer-service/az-printer-service
+cd ~/printer-server/az-printer-service
 
 # Install dependencies
 echo "Installing dependencies..."
