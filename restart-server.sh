@@ -1,5 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
-cd ~/print-server
+cd ~/printer-service/az-printer-service
+
 echo "Restarting print server..."
 pm2 restart print-server
 echo "Press enter to exit"

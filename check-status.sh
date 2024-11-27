@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
-cd ~/print-server
+cd ~/printer-service/az-printer-service
 echo "Print Server Status:"
 echo "-------------------"
 pm2 status print-server

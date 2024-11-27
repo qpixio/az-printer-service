@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
-cd ~/print-server
+cd ~/printer-service/az-printer-service
 
 clear
 echo "Print Server Management"
