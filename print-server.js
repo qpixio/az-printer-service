@@ -8,13 +8,13 @@ app.use(express.json());
 
 app.post('/print', async (req, res) => {
   try {
-    const { content } = req.body;
+    const { content, printerIP = '192.168.123.100' } = req.body;
     
     // Create a connection to the printer
     const client = new net.Socket();
     
-    client.connect(9100, '192.168.123.100', () => {
-      console.log('Connected to printer');
+    client.connect(9100, printerIP, () => {
+      console.log(`Connected to printer at ${printerIP}`);
       
       // Basic ESC/POS commands
       const commands = [
