@@ -42,6 +42,35 @@ app.post('/print', async (req, res) => {
   }
 });
 
+// New GET endpoint for test print
+app.get('/test-print', (req, res) => {
+  const client = new net.Socket();
+  
+  client.connect(9100, '192.168.123.100', () => {
+    console.log('Connected to printer for test print');
+    
+    const testContent = 'Test Print\n\nIf you can read this,\nthe printer is working!\n\n';
+    
+    const commands = [
+      '\x1B\x40',          // Initialize printer
+      '\x1B\x61\x01',      // Center alignment
+      testContent,         // Print test content
+      '\x0A\x0A\x0A',      // Feed lines
+      '\x1D\x56\x41\x03'   // Cut paper
+    ].join('');
+    
+    client.write(commands, () => {
+      client.destroy();
+      res.send('Test print sent successfully');
+    });
+  });
+
+  client.on('error', (error) => {
+    console.error('Printer connection error during test print:', error);
+    res.status(500).send('Printer connection failed during test print');
+  });
+});
+
 // Listen on all network interfaces
 app.listen(8080, '0.0.0.0', () => {
   console.log('Print server running on port 8080');
