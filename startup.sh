@@ -4,7 +4,7 @@
 sleep 2
 
 # Navigate to your print server directory
-cd ~/printer-server/az-printer-service
+cd ~/print-server/az-printer-service
 
 # Install dependencies
 echo "Installing dependencies..."
