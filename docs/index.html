@@ -1,68 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Install az-printer-service</title>
-  <style>
-    body { font-family: sans-serif; text-align: center; padding: 2em; }
-    .qr, .command { margin-top: 2em; }
-    .button {
-      display: inline-block;
-      padding: 1em 2em;
-      font-size: 18px;
-      background: #28a745;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      margin-top: 1em;
-    }
-    pre {
-      background: #f4f4f4;
-      padding: 1em;
-      border-radius: 4px;
-      overflow-x: auto;
-      text-align: left;
-    }
-    button.copy-btn {
-      margin-top: 0.5em;
-      padding: 0.5em 1em;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Install az-printer-service</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 2em;
+        }
+
+        .qr,
+        .command {
+            margin-top: 2em;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 1em 2em;
+            font-size: 18px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 1em;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 1em;
+            border-radius: 4px;
+            overflow-x: auto;
+            text-align: left;
+        }
+
+        button.copy-btn {
+            margin-top: 0.5em;
+            padding: 0.5em 1em;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>📦 Install az-printer-service</h1>
-  <p>Click the button or scan the QR code to download the repo ZIP file.</p>
+    <h1>📦 Install az-printer-service</h1>
+    <p>Click the button or scan the QR code to download the repo ZIP file.</p>
 
-  <a href="https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip" class="button">
-    ⬇️ Download ZIP
-  </a>
+    <a href="https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip" class="button">
+        ⬇️ Download ZIP
+    </a>
 
-  <div class="qr">
-    <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip&size=200x200" alt="Download QR">
-    <p>Scan to download on Android</p>
-  </div>
+    <div class="qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip&size=200x200"
+            alt="Download QR">
+        <p>Scan to download on Android</p>
+    </div>
 
-  <div class="command">
-    <h3>🧠 Termux One-Liner:</h3>
-    <pre id="cmd">curl -L https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip -o az-printer-service.zip && unzip az-printer-service.zip && cd az-printer-service-main && bash setup.sh</pre>
-    <button class="copy-btn" onclick="copyCommand()">📋 Copy to Clipboard</button>
-  </div>
+    <div class="command">
+        <h3>🧠 Termux One-Liner:</h3>
+        <pre
+            id="cmd">curl -L https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip -o az-printer-service.zip && unzip az-printer-service.zip && cd az-printer-service-main && bash setup.sh</pre>
+        <button class="copy-btn" onclick="copyCommand()">📋 Copy to Clipboard</button>
+    </div>
 
-  <div class="qr">
-    <h3>🚀 QR for Termux Command</h3>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?data=curl%20-L%20https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip%20-o%20az-printer-service.zip%20%26%26%20unzip%20az-printer-service.zip%20%26%26%20cd%20az-printer-service-main%20%26%26%20bash%20setup.sh&size=200x200" alt="Termux QR">
-    <p>Scan in Termux or use the copy button above</p>
-  </div>
+    <div class="qr">
+        <h3>🚀 QR for Termux Command</h3>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=curl%20-L%20https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip%20-o%20az-printer-service.zip%20%26%26%20unzip%20az-printer-service.zip%20%26%26%20cd%20az-printer-service-main%20%26%26%20bash%20setup.sh&size=200x200"
+            alt="Termux QR">
+        <p>Scan in Termux or use the copy button above</p>
+    </div>
 
-  <script>
-    function copyCommand() {
-      const cmd = document.getElementById("cmd").innerText;
-      navigator.clipboard.writeText(cmd).then(() => {
-        alert("Command copied!");
-      });
-    }
-  </script>
+    <h1>🚀 Fresh Termux Setup for Node.js + PM2</h1>
+
+    <p>This guide helps you set up a new Termux install with <strong>Node.js</strong>, <strong>npm</strong>,
+        <strong>PM2</strong>, and your GitHub Bash script.</p>
+
+    <h2>✅ 1. Update Termux & Install Basics</h2>
+    <pre><code>pkg update && pkg upgrade -y
+pkg install curl git unzip -y</code></pre>
+
+    <h2>🔧 2. Install Node.js via NVM</h2>
+    <pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.bashrc</code></pre>
+
+    <p>💡 If <code>~/.bashrc</code> doesn’t exist, try <code>source ~/.profile</code> or run:</p>
+    <pre><code>source ~/.nvm/nvm.sh</code></pre>
+
+    <h2>🟢 3. Install Node.js & npm Using NVM</h2>
+    <pre><code>nvm install --lts
+nvm use --lts</code></pre>
+
+    <h2>⚙️ 4. Install PM2</h2>
+    <pre><code>npm install -g pm2</code></pre>
+
+    <h2>📦 5. Download & Extract Your GitHub Repo</h2>
+    <pre><code>curl -L https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip -o repo.zip
+unzip repo.zip
+cd az-printer-service-main</code></pre>
+
+    <h2>🚀 6. Run Your Bash Script</h2>
+    <pre><code>bash setup.sh</code></pre>
+
+    <h2>📁 (Optional) Enable Storage Access</h2>
+    <pre><code>termux-setup-storage</code></pre>
+
+    <h2>✅ Summary</h2>
+    <ul>
+        <li><strong>Node + npm:</strong> via <code>nvm</code></li>
+        <li><strong>PM2:</strong> global install</li>
+        <li><strong>Repo:</strong> downloaded + extracted ZIP</li>
+        <li><strong>Script:</strong> launched with <code>bash setup.sh</code></li>
+    </ul>
+
+    <script>
+        function copyCommand() {
+            const cmd = document.getElementById("cmd").innerText;
+            navigator.clipboard.writeText(cmd).then(() => {
+                alert("Command copied!");
+            });
+        }
+    </script>
 </body>
+
 </html>
