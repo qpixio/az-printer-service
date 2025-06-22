@@ -56,47 +56,6 @@
     <p>Scan in Termux or use the copy button above</p>
   </div>
 
-  <h1>🚀 Fresh Termux Setup for Node.js + PM2</h1>
-
-  <p>This guide helps you set up a new Termux install with <strong>Node.js</strong>, <strong>npm</strong>, <strong>PM2</strong>, and your GitHub Bash script.</p>
-
-  <h2>✅ 1. Update Termux & Install Basics</h2>
-  <pre><code>pkg update && pkg upgrade -y
-pkg install curl git unzip -y</code></pre>
-
-  <h2>🔧 2. Install Node.js via NVM</h2>
-  <pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-source ~/.bashrc</code></pre>
-
-  <p>💡 If <code>~/.bashrc</code> doesn’t exist, try <code>source ~/.profile</code> or run:</p>
-  <pre><code>source ~/.nvm/nvm.sh</code></pre>
-
-  <h2>🟢 3. Install Node.js & npm Using NVM</h2>
-  <pre><code>nvm install --lts
-nvm use --lts</code></pre>
-
-  <h2>⚙️ 4. Install PM2</h2>
-  <pre><code>npm install -g pm2</code></pre>
-
-  <h2>📦 5. Download & Extract Your GitHub Repo</h2>
-  <pre><code>curl -L https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip -o repo.zip
-unzip repo.zip
-cd az-printer-service-main</code></pre>
-
-  <h2>🚀 6. Run Your Bash Script</h2>
-  <pre><code>bash setup.sh</code></pre>
-
-  <h2>📁 (Optional) Enable Storage Access</h2>
-  <pre><code>termux-setup-storage</code></pre>
-
-  <h2>✅ Summary</h2>
-  <ul>
-    <li><strong>Node + npm:</strong> via <code>nvm</code></li>
-    <li><strong>PM2:</strong> global install</li>
-    <li><strong>Repo:</strong> downloaded + extracted ZIP</li>
-    <li><strong>Script:</strong> launched with <code>bash setup.sh</code></li>
-  </ul>
-
   <h2>✅ 1. Update Termux & Install Basics</h2>
   <pre id="code1"><button class="copy-btn" onclick="copy('code1')">📋 Copy</button><code>pkg update && pkg upgrade -y
 pkg install curl git unzip -y</code></pre>
@@ -105,7 +64,7 @@ pkg install curl git unzip -y</code></pre>
   <pre id="code2"><button class="copy-btn" onclick="copy('code2')">📋 Copy</button><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 source ~/.bashrc</code></pre>
 
-  <p>💡 If <code>~/.bashrc</code> doesn’t exist, try:</p>
+  <p>💡 If <code>~/.bashrc</code> doesn't exist, try:</p>
   <pre id="code3"><button class="copy-btn" onclick="copy('code3')">📋 Copy</button><code>source ~/.profile</code></pre>
 
   <h2>🟢 3. Install Node.js & npm Using NVM</h2>
@@ -138,6 +97,13 @@ cd az-printer-service-main</code></pre>
     function copyCommand() {
       const cmd = document.getElementById("cmd").innerText;
       navigator.clipboard.writeText(cmd).then(() => {
+        alert("Command copied!");
+      });
+    }
+
+    function copy(id) {
+      const code = document.getElementById(id).querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
         alert("Command copied!");
       });
     }
