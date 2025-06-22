@@ -57,32 +57,48 @@
   </div>
 
   <h2>✅ 1. Update Termux & Install Basics</h2>
-  <pre id="code1"><button class="copy-btn" onclick="copy('code1')">📋 Copy</button><code>pkg update && pkg upgrade -y
-pkg install curl git unzip -y</code></pre>
+  <p>First, update your package lists:</p>
+  <pre id="code1a"><button class="copy-btn" onclick="copy('code1a')">📋 Copy</button><code>pkg update</code></pre>
+  <p>Next, upgrade your installed packages:</p>
+  <pre id="code1b"><button class="copy-btn" onclick="copy('code1b')">📋 Copy</button><code>pkg upgrade -y</code></pre>
+  <p>Then, install the necessary tools (curl, git, and unzip):</p>
+  <pre id="code1c"><button class="copy-btn" onclick="copy('code1c')">📋 Copy</button><code>pkg install curl git unzip -y</code></pre>
 
   <h2>🔧 2. Install Node.js via NVM</h2>
-  <pre id="code2"><button class="copy-btn" onclick="copy('code2')">📋 Copy</button><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-source ~/.bashrc</code></pre>
+  <p>Download and execute the NVM installation script:</p>
+  <pre id="code2a"><button class="copy-btn" onclick="copy('code2a')">📋 Copy</button><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash</code></pre>
+  <p>Then, source your <code>.bashrc</code> to apply the changes:</p>
+  <pre id="code2b"><button class="copy-btn" onclick="copy('code2b')">📋 Copy</button><code>source ~/.bashrc</code></pre>
 
   <p>💡 If <code>~/.bashrc</code> doesn't exist, try:</p>
   <pre id="code3"><button class="copy-btn" onclick="copy('code3')">📋 Copy</button><code>source ~/.profile</code></pre>
 
   <h2>🟢 3. Install Node.js & npm Using NVM</h2>
-  <pre id="code4"><button class="copy-btn" onclick="copy('code4')">📋 Copy</button><code>nvm install --lts
-nvm use --lts</code></pre>
+  <p>Install the latest Long-Term Support (LTS) version of Node.js:</p>
+  <pre id="code4a"><button class="copy-btn" onclick="copy('code4a')">📋 Copy</button><code>nvm install --lts</code></pre>
+  <p>Use the installed LTS version:</p>
+  <pre id="code4b"><button class="copy-btn" onclick="copy('code4b')">📋 Copy</button><code>nvm use --lts</code></pre>
 
   <h2>⚙️ 4. Install PM2</h2>
   <pre id="code5"><button class="copy-btn" onclick="copy('code5')">📋 Copy</button><code>npm install -g pm2</code></pre>
 
   <h2>📦 5. Download & Extract Your GitHub Repo</h2>
-  <pre id="code6"><button class="copy-btn" onclick="copy('code6')">📋 Copy</button><code>curl -L https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip -o repo.zip
-unzip repo.zip
-cd az-printer-service-main</code></pre>
+  <p>Download the repository ZIP file:</p>
+  <pre id="code6d"><button class="copy-btn" onclick="copy('code6d')">📋 Copy</button><code>curl -L https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip -o repo.zip</code></pre>
+  <p>Unzip the downloaded file:</p>
+  <pre id="code6e"><button class="copy-btn" onclick="copy('code6e')">📋 Copy</button><code>unzip repo.zip</code></pre>
+  <p>Navigate into the extracted directory:</p>
+  <pre id="code6f"><button class="copy-btn" onclick="copy('code6f')">📋 Copy</button><code>cd az-printer-service-main</code></pre>
 
-<h2>📦 5.1. Move to new folder</h2>
-<pre id="code61"><button class="copy-btn" onclick="copy('code61')">📋  Copy</button><code>mkdir -p ~/print-server
-  mv az-printer-service-main ~/print-server/az-printer-service
-  cd ~/print-server/az-printer-service</code></pre>
+  <h2>📦 5.1. Move to new folder</h2>
+  <p>First, create a new directory for the print server:</p>
+  <pre id="code6a"><button class="copy-btn" onclick="copy('code6a')">📋 Copy</button><code>mkdir -p ~/print-server</code></pre>
+  
+  <p>Next, move the extracted files into the new directory:</p>
+  <pre id="code6b"><button class="copy-btn" onclick="copy('code6b')">📋 Copy</button><code>mv az-printer-service-main ~/print-server/az-printer-service</code></pre>
+  
+  <p>Finally, navigate into the new directory:</p>
+  <pre id="code6c"><button class="copy-btn" onclick="copy('code6c')">📋 Copy</button><code>cd ~/print-server/az-printer-service</code></pre>
 
   <h2>🚀 6. Run Your Bash Script</h2>
   <pre id="code7"><button class="copy-btn" onclick="copy('code7')">📋 Copy</button><code>bash startup.sh</code></pre>
