@@ -111,8 +111,35 @@
     <li><strong>Node + npm:</strong> via <code>nvm</code></li>
     <li><strong>PM2:</strong> global install</li>
     <li><strong>Repo:</strong> downloaded + extracted ZIP</li>
-    <li><strong>Script:</strong> launched with <code>bash setup.sh</code></li>
+    <li><strong>Script:</strong> launched with <code>bash startup.sh</code></li>
   </ul>
+
+  <h2>🔄 Alternative: Manual Reset & Reinstall</h2>
+  <p>If you encounter issues, you can follow these steps to reset your environment and reinstall Node.js and PM2.</p>
+
+  <p>First, deactivate any active nvm version:</p>
+  <pre id="reset1"><button class="copy-btn" onclick="copy('reset1')">📋 Copy</button><code>nvm deactivate</code></pre>
+
+  <p>Uninstall any existing Node.js versions managed by nvm (you may need to adjust version numbers):</p>
+  <pre id="reset2"><button class="copy-btn" onclick="copy('reset2')">📋 Copy</button><code>nvm uninstall 18</code></pre>
+  <pre id="reset3"><button class="copy-btn" onclick="copy('reset3')">📋 Copy</button><code>nvm uninstall 16</code></pre>
+  <pre id="reset4"><button class="copy-btn" onclick="copy('reset4')">📋 Copy</button><code>nvm uninstall 14</code></pre>
+
+  <p>Completely remove nvm, npm, and PM2 directories:</p>
+  <pre id="reset5"><button class="copy-btn" onclick="copy('reset5')">📋 Copy</button><code>rm -rf ~/.nvm ~/.npm ~/.pm2</code></pre>
+
+  <p>Reset the shell's command lookup path:</p>
+  <pre id="reset6"><button class="copy-btn" onclick="copy('reset6')">📋 Copy</button><code>hash -r</code></pre>
+
+  <p>Install the LTS version of Node.js directly via pkg:</p>
+  <pre id="reset7"><button class="copy-btn" onclick="copy('reset7')">📋 Copy</button><code>pkg install nodejs-lts -y</code></pre>
+
+  <p>Install PM2 globally with the new Node.js version:</p>
+  <pre id="reset8"><button class="copy-btn" onclick="copy('reset8')">📋 Copy</button><code>npm install -g pm2</code></pre>
+
+  <p>Finally, verify the installations:</p>
+  <pre id="reset9"><button class="copy-btn" onclick="copy('reset9')">📋 Copy</button><code>node -v</code></pre>
+  <pre id="reset10"><button class="copy-btn" onclick="copy('reset10')">📋 Copy</button><code>pm2 -v</code></pre>
 
   <script>
     function copyCommand() {
