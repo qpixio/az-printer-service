@@ -22,7 +22,7 @@ fi
 
 echo "📁 Downloading az-printer-service..."
 curl -L https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip -o repo.zip
-unzip -o repo.zip -d ~/az-printer-service-main
+unzip -o repo.zip
 
 # Check if the destination folder already exists
 if [ ! -d ~/print-server/az-printer-service ]; then
