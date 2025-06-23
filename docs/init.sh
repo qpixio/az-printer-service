@@ -29,7 +29,9 @@ else
   echo "⚠️  No startup.sh found in the project folder. Please run it manually if needed."
 fi
 
-chmod +x ~/print-server/az-printer-service/update.sh && echo 'alias printer-update="bash ~/print-server/az-printer-service/update.sh"' >> ~/.bashrc && source ~/.bashrc
-
+echo "🔄 Setting up update alias..."
+chmod +x ~/print-server/az-printer-service/update.sh
+echo 'alias printer-update="bash ~/print-server/az-printer-service/update.sh"' >> ~/.bashrc
+source ~/.bashrc
 
 echo "✅ Done! You’re ready to use the az-printer-service!"
