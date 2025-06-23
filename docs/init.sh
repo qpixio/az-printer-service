@@ -44,6 +44,16 @@ chmod +x ~/print-server/az-printer-service/update.sh
 echo 'alias printer-update="bash ~/print-server/az-printer-service/update.sh"' >> ~/.bashrc
 source ~/.bashrc
 
+echo "🔄 Setting up startup shortcut..."
+echo 'printer-startup' > ~/.shortcuts/StartupPrinter
+chmod +x ~/.shortcuts/StartupPrinter
+
+echo "🔄 Setting up update shortcut..."
+echo 'printer-update' > ~/.shortcuts/UpdatePrinter
+chmod +x ~/.shortcuts/UpdatePrinter
+
+
+
 # Clean up downloaded files
 rm -f repo.zip
 rm -rf az-printer-service-main
