@@ -17,7 +17,7 @@ npm install -g pm2
 
 echo "📁 Downloading az-printer-service..."
 curl -L https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip -o repo.zip
-unzip repo.zip
+unzip repo.zip -d ~/print-server
 mkdir -p ~/print-server
 mv az-printer-service-main ~/print-server/az-printer-service
 cd ~/print-server/az-printer-service
