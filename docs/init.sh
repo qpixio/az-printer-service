@@ -13,13 +13,29 @@ pkg update -y && pkg upgrade -y
 pkg install curl git unzip nodejs-lts -y
 
 echo "🛠 Installing PM2 globally..."
-npm install -g pm2
+if ! command -v pm2 &> /dev/null; then
+    npm install -g pm2
+    echo "✅ PM2 installed successfully"
+else
+    echo "✅ PM2 is already installed"
+fi
 
 echo "📁 Downloading az-printer-service..."
 curl -L https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip -o repo.zip
 unzip repo.zip -d ~/print-server
-mkdir -p ~/print-server
-mv az-printer-service-main ~/print-server/az-printer-service
+
+# Check if the destination folder already exists
+if [ ! -d ~/print-server/az-printer-service ]; then
+    echo "📁 Moving files to ~/print-server/az-printer-service..."
+    mkdir -p ~/print-server
+    mv az-printer-service-main ~/print-server/az-printer-service
+    echo "✅ Files moved successfully"
+else
+    echo "📁 Updating existing az-printer-service folder..."
+    cp -r az-printer-service-main/* ~/print-server/az-printer-service/
+    echo "✅ Files updated successfully"
+fi
+
 cd ~/print-server/az-printer-service
 
 echo "🚀 Running startup.sh inside az-printer-service..."
@@ -34,4 +50,4 @@ chmod +x ~/print-server/az-printer-service/update.sh
 echo 'alias printer-update="bash ~/print-server/az-printer-service/update.sh"' >> ~/.bashrc
 source ~/.bashrc
 
-echo "✅ Done! You’re ready to use the az-printer-service!"
+echo "✅ Done! You're ready to use the az-printer-service!"
