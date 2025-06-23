@@ -13,3 +13,4 @@ npm install
 # Start PM2
 echo "Starting PM2..."
 pm2 start ecosystem.config.js
+pm2 save
