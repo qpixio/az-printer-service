@@ -28,7 +28,7 @@ fi
 echo "📁 Downloading az-printer-service..."
 # Use faster download with progress and resume capability
 curl -L -C - --progress-bar https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip -o repo.zip
-unzip -q repo.zip -d ~/print-server
+unzip -q -o repo.zip -d ~/print-server
 
 # Check if the destination folder already exists
 if [ ! -d ~/print-server/az-printer-service ]; then
