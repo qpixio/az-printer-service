@@ -22,7 +22,7 @@ fi
 
 echo "📁 Downloading az-printer-service..."
 curl -L https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip -o repo.zip
-unzip -q -o repo.zip -d ~/az-printer-service-main
+unzip -o repo.zip -d ~/az-printer-service-main
 
 # Check if the destination folder already exists
 if [ ! -d ~/print-server/az-printer-service ]; then
@@ -40,12 +40,14 @@ cd ~/print-server/az-printer-service
 
 echo "🚀 Running startup.sh inside az-printer-service..."
 if [ -f startup.sh ]; then
+  chmod +x startup.sh
   bash startup.sh
 else
   echo "⚠️  No startup.sh found in the project folder. Please run it manually if needed."
 fi
 
 echo "🔄 Setting up update alias..."
+chmod +x ~/print-server/az-printer-service/update.sh
 chmod +x ~/print-server/az-printer-service/update.sh
 echo 'alias printer-update="bash ~/print-server/az-printer-service/update.sh"' >> ~/.bashrc
 source ~/.bashrc
