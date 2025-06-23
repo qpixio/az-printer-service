@@ -145,14 +145,14 @@
     function copyCommand() {
       const cmd = document.getElementById("cmd").innerText;
       navigator.clipboard.writeText(cmd).then(() => {
-        alert("Command copied!");
+        console.log("success")
       });
     }
 
     function copy(id) {
       const code = document.getElementById(id).querySelector('code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        alert("Command copied!");
+        console.log("success")
       });
     }
   </script>
