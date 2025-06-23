@@ -53,21 +53,6 @@ chmod +x ~/print-server/az-printer-service/check-status.sh
 echo 'alias printer-status="bash ~/print-server/az-printer-service/check-status.sh"' >> ~/.bashrc
 source ~/.bashrc
 
-echo "🔄 Setting up startup shortcut..."
-echo 'printer-startup' > ~/.shortcuts/StartupPrinter
-chmod +x ~/.shortcuts/StartupPrinter
-
-echo "🔄 Setting up update shortcut..."
-echo 'printer-update' > ~/.shortcuts/UpdatePrinter
-chmod +x ~/.shortcuts/UpdatePrinter
-
-echo "🔄 Setting up status shortcut..."
-echo 'printer-status' > ~/.shortcuts/StatusPrinter
-chmod +x ~/.shortcuts/StatusPrinter
-
-
-
-
 # Clean up downloaded files
 rm -f repo.zip
 rm -rf az-printer-service-main
