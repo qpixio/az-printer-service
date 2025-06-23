@@ -22,11 +22,11 @@ mkdir -p ~/print-server
 mv az-printer-service-main ~/print-server/az-printer-service
 cd ~/print-server/az-printer-service
 
-echo "🚀 Running setup.sh inside az-printer-service..."
-if [ -f setup.sh ]; then
-  bash setup.sh
+echo "🚀 Running startup.sh inside az-printer-service..."
+if [ -f startup.sh ]; then
+  bash startup.sh
 else
-  echo "⚠️  No setup.sh found in the project folder. Please run it manually if needed."
+  echo "⚠️  No startup.sh found in the project folder. Please run it manually if needed."
 fi
 
 echo "✅ Done! You’re ready to use the az-printer-service!"
