@@ -1,5 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+# Set faster package mirrors for Termux
+echo "⚡ Configuring fast package mirrors..."
+echo "deb https://packages.termux.dev/apt/termux-main stable main" > $PREFIX/etc/apt/sources.list.d/fast.list
+
 echo "🔄 Cleaning up old Node.js/NVM installations..."
 nvm deactivate >/dev/null 2>&1
 nvm uninstall 18 >/dev/null 2>&1
@@ -9,20 +13,22 @@ rm -rf ~/.nvm ~/.npm ~/.pm2 ~/.bashrc
 hash -r
 
 echo "📦 Updating packages and installing prerequisites..."
-pkg update -y && pkg upgrade -y
-pkg install curl git unzip nodejs-lts -y
+# Use faster update with progress
+pkg update -y --no-progress-bar && pkg upgrade -y --no-progress-bar
+pkg install curl git unzip nodejs-lts -y --no-progress-bar
 
 echo "🛠 Installing PM2 globally..."
 if ! command -v pm2 &> /dev/null; then
-    npm install -g pm2
+    npm install -g pm2 --silent
     echo "✅ PM2 installed successfully"
 else
     echo "✅ PM2 is already installed"
 fi
 
 echo "📁 Downloading az-printer-service..."
-curl -L https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip -o repo.zip
-unzip repo.zip -d ~/print-server
+# Use faster download with progress and resume capability
+curl -L -C - --progress-bar https://github.com/qpixio/az-printer-service/archive/refs/heads/main.zip -o repo.zip
+unzip -q repo.zip -d ~/print-server
 
 # Check if the destination folder already exists
 if [ ! -d ~/print-server/az-printer-service ]; then
@@ -49,5 +55,9 @@ echo "🔄 Setting up update alias..."
 chmod +x ~/print-server/az-printer-service/update.sh
 echo 'alias printer-update="bash ~/print-server/az-printer-service/update.sh"' >> ~/.bashrc
 source ~/.bashrc
+
+# Clean up downloaded files
+rm -f repo.zip
+rm -rf az-printer-service-main
 
 echo "✅ Done! You're ready to use the az-printer-service!"
