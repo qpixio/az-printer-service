@@ -38,10 +38,19 @@ else
   echo "⚠️  No startup.sh found in the project folder. Please run it manually if needed."
 fi
 
+echo "🔄 Setting up start up alias..."
+chmod +x ~/print-server/az-printer-service/startup.sh
+echo 'alias printer-startup="bash ~/print-server/az-printer-service/startup.sh"' >> ~/.bashrc
+source ~/.bashrc
+
 echo "🔄 Setting up update alias..."
 chmod +x ~/print-server/az-printer-service/update.sh
-chmod +x ~/print-server/az-printer-service/update.sh
 echo 'alias printer-update="bash ~/print-server/az-printer-service/update.sh"' >> ~/.bashrc
+source ~/.bashrc
+
+echo "🔄 Setting up status alias..."
+chmod +x ~/print-server/az-printer-service/check-status.sh
+echo 'alias printer-status="bash ~/print-server/az-printer-service/check-status.sh"' >> ~/.bashrc
 source ~/.bashrc
 
 echo "🔄 Setting up startup shortcut..."
@@ -51,6 +60,11 @@ chmod +x ~/.shortcuts/StartupPrinter
 echo "🔄 Setting up update shortcut..."
 echo 'printer-update' > ~/.shortcuts/UpdatePrinter
 chmod +x ~/.shortcuts/UpdatePrinter
+
+echo "🔄 Setting up status shortcut..."
+echo 'printer-status' > ~/.shortcuts/StatusPrinter
+chmod +x ~/.shortcuts/StatusPrinter
+
 
 
 
